@@ -6,7 +6,8 @@ bot.on(
 	"message", message => {
 		if (isReady && message.content === "oh dear") {
 			isReady = false;
-			console.log(bot.channels.cache)
+			//console.log(bot.channels.cache)
+
 			// that one specific channel on that one specific server :
 			//var voiceChannel = bot.channels.cache.get("622846233903628362");
 
@@ -19,7 +20,7 @@ bot.on(
 
 			voiceChannel.join().then(
 				connection => {
-					const dispatcher = connection.play("./troll.mp4");
+					const dispatcher = connection.play("./media/troll.mp4");
 					dispatcher.on(
 						"end", end => {
 							voiceChannel.leave();
