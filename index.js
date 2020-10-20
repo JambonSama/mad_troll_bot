@@ -6,15 +6,16 @@ bot.on(
 	"message", message => {
 		if (isReady && message.content === "oh dear") {
 			isReady = false;
-			//console.log(bot.channels.cache)
+			// console.log(bot.channels.cache)
 
 			// that one specific channel on that one specific server :
-			//var voiceChannel = bot.channels.cache.get("622846233903628362");
+			// var voiceChannel = bot.channels.cache.get("622846233903628362");
 
 			// voice channel general on server hosting the text channel from which the message originates
-			var voiceChannel = message.guild.channels.cache.find((value,key,collection)=>value.name=="General" && value.type=="voice");
+			// var voiceChannel = message.guild.channels.cache.find((value,key,collection)=>value.name=="General" && value.type=="voice");
 
 			// voice channel on which message author is connected 
+			var voiceChannel = message.member.voice.channel;
 
 			// voice channel on which tagged user is connected
 
@@ -33,4 +34,4 @@ bot.on(
 	}
 );
 
-bot.login(<HERE BE BOT KEY>);
+// client.login(process.env.BOT_TOKEN);
